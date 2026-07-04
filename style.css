@@ -1,3 +1,7 @@
+/* ===========================================
+   COSTEL NFC DIGITAL BUSINESS CARD
+   =========================================== */
+
 *{
 margin:0;
 padding:0;
@@ -15,39 +19,145 @@ justify-content:center;
 
 align-items:center;
 
-background:linear-gradient(135deg,#0f0f0f,#1d1d1d,#000);
+overflow:hidden;
 
-color:white;
+background:#000;
+
+position:relative;
 
 }
+
+/* Background */
+
+.background{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:url("images/background.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+filter:brightness(.45);
+
+z-index:-2;
+
+}
+
+.background::after{
+
+content:"";
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(
+
+180deg,
+
+rgba(0,0,0,.35),
+
+rgba(0,0,0,.75)
+
+);
+
+}
+
+/* Card */
 
 .card{
 
-width:340px;
+width:360px;
 
 padding:40px;
 
-border-radius:25px;
-
-background:rgba(255,255,255,.06);
-
-backdrop-filter:blur(12px);
-
 text-align:center;
 
-box-shadow:0 0 40px rgba(0,0,0,.4);
+border-radius:30px;
 
-border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+animation:fade .8s ease;
 
 }
 
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Profile */
+
+.profile{
+
+width:150px;
+
+height:150px;
+
+margin:auto;
+
+border-radius:50%;
+
+overflow:hidden;
+
+border:4px solid #FFD700;
+
+margin-bottom:25px;
+
+}
+
+.profile img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+}
+
+/* Text */
+
 h1{
 
-font-size:42px;
-
-margin-bottom:10px;
+font-size:40px;
 
 color:#FFD700;
+
+margin-bottom:10px;
 
 }
 
@@ -55,38 +165,106 @@ p{
 
 font-size:18px;
 
-margin-bottom:35px;
+color:#f0f0f0;
 
-color:#dddddd;
+margin-bottom:35px;
 
 }
 
-.button{
+/* Buttons */
 
-display:block;
+.buttons{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.btn{
 
 padding:16px;
 
-background:#FFD700;
-
-color:#111;
-
 text-decoration:none;
+
+border-radius:14px;
 
 font-size:18px;
 
 font-weight:bold;
 
-border-radius:12px;
-
 transition:.3s;
 
 }
 
-.button:hover{
+.call{
+
+background:#FFD700;
+
+color:#111;
+
+}
+
+.call:hover{
+
+transform:scale(1.04);
+
+}
+
+.whatsapp{
+
+background:#25D366;
+
+color:white;
+
+}
+
+.whatsapp:hover{
+
+transform:scale(1.04);
+
+}
+
+.save{
 
 background:white;
 
-transform:scale(1.05);
+color:#111;
+
+}
+
+.save:hover{
+
+transform:scale(1.04);
+
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.card{
+
+width:92%;
+
+padding:30px;
+
+}
+
+.profile{
+
+width:120px;
+
+height:120px;
+
+}
+
+h1{
+
+font-size:34px;
+
+}
 
 }
